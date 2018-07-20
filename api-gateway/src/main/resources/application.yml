@@ -1,0 +1,68 @@
+server:
+  port: 8600
+  http2:
+    enabled: true
+spring:
+  application:
+    name: api-gateway
+  zipkin:
+    base-url: http://localhost:9411/
+#  datasource:
+#    url: jdbc:mysql://172.16.7.14:3306/zero_smart_home?characterEncoding=utf-8
+#    username: root
+#    password: root
+#    driver-class-name: com.mysql.jdbc.Driver
+#    platform: mysql
+#  jpa:
+#    generate-ddl: false
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: none
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+#    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  cloud:
+    gateway:
+#      discovery:
+#        locator: #是否与服务发现组件进行结合，通过 serviceId(必须设置成大写) 转发到具体的服务实例。默认为false，设为true便开启通过服务中心的自动根据 serviceId 创建路由的功能。
+#          enabled: true #路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问。
+      #default-filters:
+      routes:
+      - id: myRoute
+        uri: lb://user-service
+        predicates:
+        - Path=/user/**
+      - id: myRoute1
+        uri: lb://room-service
+        predicates:
+        - Path=/**
+#        - RemoteAddr=127.0.0.1/24
+#        - CheckToken=401
+        filters:
+#        - SetStatus2=123
+        - CheckToken=123
+        - AccessDeny
+
+eureka:
+#  instance:
+#    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+#    lease-expiration-duration-in-seconds: 30
+#    lease-renewal-interval-in-seconds: 10
+#    appname: ${spring.application.name}
+#    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+

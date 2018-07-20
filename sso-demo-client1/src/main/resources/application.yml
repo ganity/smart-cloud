@@ -1,0 +1,31 @@
+security:
+  oauth2:
+    client:
+      clientId: clientauthcode
+      clientSecret: 123456
+      user-authorization-uri: http://127.0.0.1:8300/oauth/authorize
+      access-token-uri: http://127.0.0.1:8300/oauth/token
+#    client:
+#      clientId: earthchen1
+#      clientSecret: earthchensecret1
+#      user-authorization-uri: http://127.0.0.1:9999/server/oauth/authorize
+#      access-token-uri: http://127.0.0.1:9999/server/oauth/token
+    resource:
+      jwt:
+        key-uri: http://127.0.0.1:8300/oauth/token_key
+#        keyValue: |
+#                  -----BEGIN PUBLIC KEY-----
+#                  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn0YjVq+Nlzs4tfTX1Vze1q2EB8eo5AqSGRl2lYdP9fQ0+nvu8uXb9dpr/L0zt4p2IjH8bE/WmH+gLhXPS8p5e2SBDhk57X9Zq8MeEsCh+p+yRqVrvDrKoiB/iRCHxTC8jBSNnp/i2gYGBvHBy0c4TxihnLlAh0XZBmBfAteP9HXWvOSsEz0OZU4t5NATQs/hH+gVshc8+81tc8DbknL080YIDLAXnERsHgdrVNE8cZ+IqifBdwe4W9/gz1zbR2PW0YwU+J2iYiuriqN8afNi+wEExXI7YkVxtqhvroulP5ANBZBOUf1Hyf2OEZk1ls69+q9vVOZMigs5r6JCeeZPPQIDAQAB
+#                  -----END PUBLIC KEY-----
+#      user-info-uri: http://127.0.0.1:9999/server/me
+#      preferTokenInfo: false
+
+server:
+  port: 8070
+  servlet:
+    context-path: /client1
+#logging:
+#  level:
+#    root: debug
+
+

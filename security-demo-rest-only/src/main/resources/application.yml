@@ -1,0 +1,52 @@
+server:
+  port: 8300
+spring:
+  application:
+    name: auth-server
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+#    date-format: yyyy-MM-dd HH:mm:ss.SSS
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:mysql://172.16.7.14:3306/zero_smart_home?characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+#  redis:
+#    database: 14
+#    host: 127.0.0.1
+#    password:
+#    timeout: 8000
+#    port: 6379
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8000/eureka/
+  zipkin:
+    base-url: http://localhost:9411/
+  redis:
+    database: 4
+    host: 172.16.7.14
+    port: 6379
+eureka:
+#  instance:
+#    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+#    lease-expiration-duration-in-seconds: 30
+#    lease-renewal-interval-in-seconds: 10
+#    appname: ${spring.application.name}
+#    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+feign:
+  hystrix:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+#logging:
+#  level:
+#    root: debug

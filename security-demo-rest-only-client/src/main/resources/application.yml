@@ -1,0 +1,29 @@
+jwt:
+  type: uri
+  client-id: earthchen0
+  client-secret: earthchensecret0
+  key-uri: http://localhost:8300/oauth/token_key
+  public-key:
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn0YjVq+Nlzs4tfTX1Vze1q2EB8eo5AqSGRl2lYdP9fQ0+nvu8uXb9dpr/L0zt4p2IjH8bE/WmH+gLhXPS8p5e2SBDhk57X9Zq8MeEsCh+p+yRqVrvDrKoiB/iRCHxTC8jBSNnp/i2gYGBvHBy0c4TxihnLlAh0XZBmBfAteP9HXWvOSsEz0OZU4t5NATQs/hH+gVshc8+81tc8DbknL080YIDLAXnERsHgdrVNE8cZ+IqifBdwe4W9/gz1zbR2PW0YwU+J2iYiuriqN8afNi+wEExXI7YkVxtqhvroulP5ANBZBOUf1Hyf2OEZk1ls69+q9vVOZMigs5r6JCeeZPPQIDAQAB
+    -----END PUBLIC KEY-----
+server:
+  port: 8080
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8300/oauth/token
+      user-authorization-uri: http://localhost:8300/oauth/authorize
+      client-id: earthchen0
+      client-secret: earthchensecret0
+    resource:
+      jwt:
+        key-value: 123
+
+#  servlet:
+#    context-path: /client1
+#logging:
+#  level:
+#    root: debug
+
+
