@@ -1,23 +1,35 @@
 # smart cloud
 
-<module>user-service</module>
-		<module>eureka-server</module>
-		<module>user-api</module>
-        <module>hystrix-dashboard</module>
-        <module>turbine-dashboard</module>
-        <!--<module>security-rest</module>-->
-        <!--<module>security-http</module>-->
-        <!--<module>security-demo-rest</module>-->
-        <!--<module>security-sso</module>-->
-        <module>sso-demo-client1</module>
-		<module>sso-demo-client2</module>
-        <module>security-demo-rest-only</module>
-		<module>security-demo-rest-only-client</module>
-        <module>security-api</module>
-        <module>zeroiot-entry</module>
-        <module>example-webflux-provider</module>
-		<module>example-webflux-customer</module>
-        <module>api-gateway</module>
-        <module>room-service</module>
-		<module>room-api</module>
-        <module>zeroiot-common</module>
+This project build in spring cloud Finchley.RELEASE, and include some example.
+
+`eureka-server` discover server with eureka
+
+`security-demo-rest-only` oauth2.0 server, with `sso server` and `password` authorized grant type
+
+    -`security-demo-rest-only-client` simple resource service
+    -`sso-demo-client1` the sso login example client 1
+    -`sso-demo-client2` the sso login example client 2
+
+`api-gateway` the gateway base on spring-cloud-gateway, and filter to verify access token and access granted authority.
+
+`zeroiot-common` something common
+
+`zeroiot-entry` the entries
+
+`user-service` the user service
+
+`user-api` the feign client api for user-service that the client can access.
+
+`room-service` room service
+
+`room-api` the feign client api
+
+`hystrix-dashboard`
+
+`turbine-dashboard`
+
+`example-webflux-provider` an example provider in servlet
+
+`example-webflux-customer` a feign customer webflux
+
+
