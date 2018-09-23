@@ -72,8 +72,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .anyRequest().authenticated()
 
-                .anyRequest()
-                .access("@rbacService.hasPermission(request, authentication)");;
+//                .anyRequest()
+//                .access("@rbacService.hasPermission(request, authentication)");
+        ;
 
     }
 }

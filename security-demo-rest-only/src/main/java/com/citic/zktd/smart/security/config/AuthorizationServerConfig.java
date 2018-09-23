@@ -113,8 +113,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
 //        oauthServer.checkTokenAccess("hasRole('CLIENT')");
         oauthServer
-                .tokenKeyAccess("permitAll()")
-//                .tokenKeyAccess("isAuthenticated()")
+//                .tokenKeyAccess("permitAll()")
+                .tokenKeyAccess("isAuthenticated()")
                 .checkTokenAccess("isAuthenticated()");
     }
 
